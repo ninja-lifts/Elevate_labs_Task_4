@@ -1,0 +1,38 @@
+
+# UFW Rules (from: sudo ufw status numbered)
+
+Status: active
+
+[1] 30000                      ALLOW IN    Anywhere
+[2] 30000 (v6)                 ALLOW IN    Anywhere (v6)
+
+
+# iptables Rules (from: sudo iptables -L --line-numbers)
+
+Chain INPUT (policy DROP)
+1    ufw-before-logging-input  all  --  anywhere             anywhere
+2    ufw-before-input          all  --  anywhere             anywhere
+3    ufw-after-input           all  --  anywhere             anywhere
+4    ufw-after-logging-input   all  --  anywhere             anywhere
+5    ufw-reject-input          all  --  anywhere             anywhere
+6    ufw-track-input           all  --  anywhere             anywhere
+
+Chain FORWARD (policy DROP)
+1    ufw-before-logging-forward  all  --  anywhere           anywhere
+2    ufw-before-forward          all  --  anywhere           anywhere
+3    ufw-after-forward           all  --  anywhere           anywhere
+4    ufw-after-logging-forward   all  --  anywhere           anywhere
+5    ufw-reject-forward          all  --  anywhere           anywhere
+6    ufw-track-forward           all  --  anywhere           anywhere
+
+Chain OUTPUT (policy ACCEPT)
+1    ufw-before-logging-output  all  --  anywhere            anywhere
+2    ufw-before-output          all  --  anywhere            anywhere
+3    ufw-after-output           all  --  anywhere            anywhere
+4    ufw-after-logging-output   all  --  anywhere            anywhere
+5    ufw-reject-output          all  --  anywhere            anywhere
+6    ufw-track-output           all  --  anywhere            anywhere
+
+Chain ufw-user-input
+1    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:30000
+2    ACCEPT     udp  --  anywhere             anywhere             udp dpt:30000
