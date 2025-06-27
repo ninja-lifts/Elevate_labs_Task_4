@@ -1,5 +1,5 @@
 
-# Linux Firewall (UFW) Configuration and Testing Guide
+# Linux Firewall (UFW) Configuration and Testing 
 
 The steps I followed to inspect, modify, and test basic firewall rules using `ufw` (Uncomplicated Firewall) on a Linux system (tested on Kali Linux).
 
